@@ -362,7 +362,7 @@ Open http://localhost:3000/movies and refresh several times:
 * The "Rendered at" timestamp never changes. It is the time of the build.
 * Nothing new is printed in the terminal.
 
-This is SSG: the HTML was produced at build time. Next.js labels it "(Static)" because `/movies` has a fixed URL. The label "(SSG)" with ● is only used for pages of a dynamic segment such as `/movies/[id]`, prerendered with `generateStaticParams` (sessions 2 and 3).
+This is SSG: the HTML was produced at build time. Next.js labels it "(Static)" because `/movies` has a fixed URL. The label "(SSG)" with ● is only used for pages of a dynamic segment such as `/movies/[id]`, prerendered with `generateStaticParams` (sessions 3 and 5).
 
 ### Part E: Make it dynamic (10 min)
 
@@ -420,7 +420,7 @@ export default function MoviesClientPage() {
 }
 ```
 
-`"use client"` marks a Client Component: its code is sent to the browser, so it can use hooks like `useState` and `useEffect`. Session 3 explains it in detail.
+`"use client"` marks a Client Component: its code is sent to the browser, so it can use hooks like `useState` and `useEffect`. Session 5 explains it in detail.
 
 Run `npm run dev` and open http://localhost:3000/movies-client, then:
 
@@ -428,7 +428,7 @@ Run `npm run dev` and open http://localhost:3000/movies-client, then:
 * With JavaScript disabled: the page stays on "Loading movies...".
 * Network tab: `movies.json` is requested after the JavaScript has run. In development you see the request twice: React Strict Mode runs effects twice in development to help find bugs. In production it happens once.
 
-Careful with a common misconception: a Client Component is not "rendered only in the browser". Next.js also prerenders it to HTML on the server, which is why "Loading movies..." is in the page source. What runs only in the browser here is the `useEffect`, so the data arrives only in the browser.
+Careful with **a common misconception**: a Client Component is not "rendered only in the browser". Next.js also prerenders it to HTML on the server, which is why "Loading movies..." is in the page source. What runs only in the browser here is the `useEffect`, so the data arrives only in the browser.
 
 The same `MovieList` component is rendered on the server in `/movies` and in the browser in `/movies-client`. The component did not change. Only where and when it renders changed.
 
