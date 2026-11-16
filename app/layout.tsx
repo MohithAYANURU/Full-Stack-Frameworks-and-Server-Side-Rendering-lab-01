@@ -16,10 +16,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Movie Night",
-    template: "%s | Movie Night",
+    default: "LiftLog",
+    template: "%s | LiftLog",
   },
-  description: "Pick the movie for our next movie night",
+  description: "Track your training and share your progress with LiftLog",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -32,11 +32,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <header className="border-b">
           <div className="mx-auto flex w-full max-w-2xl items-center justify-between p-4">
             <Link href="/" className="font-bold">
-              Movie Night
+              LiftLog
             </Link>
             <nav className="flex gap-4">
-              <NavLink href="/movies">Movies</NavLink>
-              <NavLink href="/about">About</NavLink>
+              <NavLink href="/">Home</NavLink>
+              <NavLink href="/exercises">Exercises</NavLink>
             </nav>
           </div>
         </header>

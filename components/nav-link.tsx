@@ -15,7 +15,11 @@ export function NavLink({
   const isActive = pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <Link href={href} className={isActive ? "font-bold underline" : "underline"}>
+    <Link
+      href={href}
+      aria-current={isActive ? "page" : undefined}
+      className={isActive ? "font-bold underline" : "underline"}
+    >
       {children}
     </Link>
   );

@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "barbell-squat",
+    "name": "Barbell Squat",
+    "muscleGroup": "Legs",
+    "description": "A compound lift that trains the quadriceps, glutes, and hamstrings."
+  },
+  {
+    "slug": "bench-press",
+    "name": "Bench Press",
+    "muscleGroup": "Chest",
+    "description": "A pressing exercise for building strength in the chest, shoulders, and triceps."
+  },
+  {
+    "slug": "deadlift",
+    "name": "Deadlift",
+    "muscleGroup": "Back",
+    "description": "A full-body pull that focuses on the posterior chain and grip."
+  },
+  {
+    "slug": "overhead-press",
+    "name": "Overhead Press",
+    "muscleGroup": "Shoulders",
+    "description": "A standing press that develops shoulder and upper-body strength."
+  },
+  {
+    "slug": "pull-up",
+    "name": "Pull-up",
+    "muscleGroup": "Back",
+    "description": "A bodyweight pulling movement for the back, arms, and core."
+  }
+]
