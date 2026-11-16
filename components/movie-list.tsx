@@ -1,4 +1,5 @@
 import type { Movie } from "@/lib/movies";
+import Link from "next/link";
 
 export function MovieList({ movies }: { movies: Movie[] }) {
   return (
@@ -6,7 +7,9 @@ export function MovieList({ movies }: { movies: Movie[] }) {
       {movies.map((movie) => (
         <li key={movie.id} className="rounded border p-4">
           <h2 className="font-semibold">
-            {movie.title} ({movie.year})
+            <Link href={`/movies/${movie.id}`} className="underline">
+              {movie.title} ({movie.year})
+            </Link>
           </h2>
           <p className="text-sm">
             {movie.genre} · {movie.minutes} min
