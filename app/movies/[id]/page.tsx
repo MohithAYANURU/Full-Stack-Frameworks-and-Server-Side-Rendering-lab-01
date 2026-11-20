@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ShortlistButton } from "@/components/shortlist-button";
 import { getMovie, getMovies } from "@/lib/movies";
 
 type MoviePageProps = {
@@ -12,7 +13,7 @@ export const dynamicParams = false;
 
 // Runs at build time: one HTML page per movie
 export async function generateStaticParams() {
-  const movies = await getMovies();
+  const movies = await getMovies({ cache: "force-cache" });
   return movies.map((movie) => ({ id: String(movie.id) }));
 }
 
@@ -20,7 +21,7 @@ export async function generateMetadata({
   params,
 }: MoviePageProps): Promise<Metadata> {
   const { id } = await params;
-  const movie = await getMovie(Number(id));
+  const movie = await getMovie(id, { cache: "force-cache" });
 
   return {
     title: movie?.title ?? "Movie not found",
@@ -29,7 +30,7 @@ export async function generateMetadata({
 
 export default async function MoviePage({ params }: MoviePageProps) {
   const { id } = await params;
-  const movie = await getMovie(Number(id));
+  const movie = await getMovie(id, { cache: "force-cache" });
 
   if (!movie) {
     notFound();
@@ -44,6 +45,7 @@ export default async function MoviePage({ params }: MoviePageProps) {
       <p className="mt-2 text-zinc-600 dark:text-zinc-400">
         {movie.year} · {movie.genre} · {movie.minutes} min
       </p>
+      <ShortlistButton movieTitle={movie.title} />
     </main>
   );
 }

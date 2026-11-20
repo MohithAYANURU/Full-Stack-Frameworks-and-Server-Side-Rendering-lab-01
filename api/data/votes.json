@@ -1,0 +1,8 @@
+[
+  { "movieId": 1, "count": 42 },
+  { "movieId": 2, "count": 38 },
+  { "movieId": 3, "count": 35 },
+  { "movieId": 4, "count": 27 },
+  { "movieId": 5, "count": 31 },
+  { "movieId": 6, "count": 24 }
+]
